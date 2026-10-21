@@ -15,3 +15,19 @@ app.add_middleware(
 @app.get("/")
 def home():
     return {"message": "VRO backend is running"}
+
+import os
+from sqlalchemy import create_engine, text
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+if DATABASE_URL:
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+engine = create_engine(DATABASE_URL) if DATABASE_URL else None
+
+@app.get("/db-test")
+def db_test():
+    if engine is None:
+        return {"db": "DATABASE_URL not set"}
+    with engine.connect() as conn:
+        conn.execute(text("SELECT 1"))
+    return {"db": "connected"}
