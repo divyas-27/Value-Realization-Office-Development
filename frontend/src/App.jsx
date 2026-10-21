@@ -6,7 +6,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/")
+      .get(import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/")
       .then((res) => setMessage(res.data.message))
       .catch(() => setMessage("Could not reach the backend"));
   }, []);
