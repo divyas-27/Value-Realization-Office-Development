@@ -5,3 +5,7 @@ body { margin: 0; font-family: Arial, sans-serif; }
 .sidebar a { color: #d1d5db; text-decoration: none; padding: 8px 10px; border-radius: 6px; }
 .sidebar a.active { background: #2563eb; color: white; }
 .content { flex: 1; padding: 30px; }
+.user-info { display: flex; flex-direction: column; color: white; padding: 8px 10px; border-bottom: 1px solid #374151; margin-bottom: 5px; }
+.user-info span { color: #9ca3af; font-size: 13px; }
+.logout-btn { margin-top: auto; padding: 10px; background: #dc2626; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 15px; }
+.logout-btn:hover { background: #b91c1c; }
